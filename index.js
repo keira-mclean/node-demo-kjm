@@ -1,12 +1,19 @@
-const {intersection} = require("lodash");
-
-const busTimes = [2000, 2020, 2040, 2060]
-const myAvailableTimes = [1010, 2020, 2030, 2040, 2080]
-    
-const busTimesThatWork = intersection(busTimes, myAvailableTimes);
-    
-
-console.log(busTimesThatWork);
+const express = require('express');
+const app = express();
+const port = 5000;
 
 
+const studentRouter = require("./routes/student.routes")
+app.use(express.json());
+
+app.listen(port, function () {
+    console.log('Example app listeing on port ${port}!')
+})
+
+// add a default route
+app.get('/', function (req, res) {
+    res.send('You have reached the top-level route with a GET');
+  })
+
+  
 
